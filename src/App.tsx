@@ -1,26 +1,25 @@
 import { useState } from 'react'
 import { Filter } from './components/Filter.tsx'
-import { Box, Text, VStack, Divider } from "@chakra-ui/react"
+import { Box, Text, VStack, Divider, } from "@chakra-ui/react"
+import Slate from './components/Slate.tsx'
+import Total from './components/Total.tsx'
+import NewTodo from './components/NewTodo.tsx'
+import GetTodos from './components/GetTodos.tsx'
 
-
-
-//import './App.css'
+// import './App.css'
 
 function App() {
  // const [count, setCount] = useState(0)
 
   return (
-    <>
-    <br />
-    <hr />
-    
-    <VStack mt={8} spacing='8'>
+    <VStack mt={8} spacing='8' >
        <Filter />
-       
-       <Divider border='px' borderColor='teal.500' w='100%' />
-       <Filter />
+       {/* <List h={'30px'} /> */}
+       <Slate  style={'300px'} />
+       <Total />
+       <NewTodo />
+       <GetTodos />
     </VStack>
-    </>
   )
 }
 
