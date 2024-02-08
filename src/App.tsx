@@ -12,15 +12,21 @@ function App() {
   
   const value = useContext(ListContext)
 
+  const togleTodo = (itemId) => {
+    list.map(item => item.id === itemId ? setList([...list], [[item: id]:{...item, [item.todo]: !item.todo}]) : setList([...list]) )
+  }
+
   const [list, setList] = useState([{
     id: 0,
     title: 'Learn JS',
     todo: false,
+    togleTodo
   },
   {
     id: 1,
     title: 'Learn React',
-    todo: false,
+    todo: true,
+    togleTodo
   }])
 
   return (
