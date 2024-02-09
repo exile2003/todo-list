@@ -5,7 +5,7 @@ import ListContext from '../context/ListContext'
 function Total() {
 
     const value = useContext(ListContext)
-    const count = value.reduce((sum, item) => sum += 1, 0)
+    const count = value.todos.reduce((sum, item) => sum += 1, 0)
 
   return (
     <div>Total = {count}</div>

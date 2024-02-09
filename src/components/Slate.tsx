@@ -1,7 +1,6 @@
 import { Checkbox, HStack, Stack } from '@chakra-ui/react'
 import {useContext} from 'react'
-import ListContext from '../context/ListContext.tsx'
-
+import ListContext from '../context/ListContext.ts'
 
 
 function Slate() {
