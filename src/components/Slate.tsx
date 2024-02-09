@@ -12,10 +12,10 @@ function Slate() {
         return (
             <HStack spacing={4} key={id}>
                 {
-                    //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} />
+                    //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
-                todo ? <input type="checkbox" onChange={() => {togleTodo(id); console.log(id, todo)}}  checked />
-                     : <input type="checkbox" onChange={() => {togleTodo(id); console.log(id, todo)}}  />
+                todo ? <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => {togleTodo(id); console.log(id, todo)}}  checked />
+                     : <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => {togleTodo(id); console.log(id, todo)}}  />
                 
                 }
                 <h3>{title}</h3>
