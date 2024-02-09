@@ -22,5 +22,4 @@ const ListContext = createContext<TodoContextType>({
    togleTodo: () => {}
 })
 
-
 export default ListContext
