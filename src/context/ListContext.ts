@@ -3,9 +3,9 @@ import {createContext} from 'react'
 
 interface TodoContextType {
     todos: {
-        id: null|number;
-        title: null|string;
-        todo: null|boolean;
+        id: number|null;
+        title: string|null;
+        todo: boolean|null;
     }[];
     togleTodo: (arg: number) => void;
 }
