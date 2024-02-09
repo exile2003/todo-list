@@ -12,25 +12,27 @@ function App() {
   
   const value = useContext(ListContext)
 
-  const togleTodo = (itemId) => {
-    list.map(item => item.id === itemId ? setList([...list], [[item: id]:{...item, [item.todo]: !item.todo}]) : setList([...list]) )
+  const togleTodo = (itemId: number) => {
+//    const newList = list.map((item) => item.id === itemId ? setList([...list, {...item, todo: !item.todo}])  : setList([...list,{...item}]));
+    let newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
+    console.log(newList)
+    setList(newList) 
   }
 
   const [list, setList] = useState([{
     id: 0,
     title: 'Learn JS',
-    todo: false,
-    togleTodo
+    todo: false
   },
   {
     id: 1,
     title: 'Learn React',
-    todo: true,
-    togleTodo
+    todo: true
   }])
 
+
   return (
-    <ListContext.Provider value={list} >
+    <ListContext.Provider value={{todos: list, togleTodo}} >
        <VStack mt={8} spacing='8' >
        <Filter />
        <Slate />
