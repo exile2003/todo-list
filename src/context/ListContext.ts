@@ -3,11 +3,12 @@ import {createContext} from 'react'
 
 interface TodoContextType {
     todos: {
-        id: number|null;
+        id: string|null;
         title: string|null;
         todo: boolean|null;
     }[];
-    togleTodo: (arg: number) => void;
+    togleTodo: (arg: string) => void;
+    addTodo: (arg: string) => void;
 }
 
 //const nope = (arg: number) => {};
@@ -19,7 +20,8 @@ const ListContext = createContext<TodoContextType>({
         todo: null,
      //   togleTodo: nope
     }], 
-   togleTodo: () => {}
+   togleTodo: () => {},
+   addTodo: () => {}
 })
 
 export default ListContext

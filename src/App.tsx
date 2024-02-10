@@ -1,6 +1,7 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useId } from 'react'
 import { Filter } from './components/Filter.tsx'
 import { Box, Text, VStack, Divider, } from "@chakra-ui/react"
+import { nanoid } from 'nanoid';
 import Slate from './components/Slate.tsx'
 import Total from './components/Total.tsx'
 import NewTodo from './components/NewTodo.tsx'
@@ -12,31 +13,35 @@ function App() {
   
   const value = useContext(ListContext)
 
-  const togleTodo = (itemId: number) => {
+  const togleTodo = (itemId: string) => {
 //    const newList = list.map((item) => item.id === itemId ? setList([...list, {...item, todo: !item.todo}])  : setList([...list,{...item}]));
-    let newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
+    const newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
     console.log(newList)
     setList(newList) 
   }
 
-  const callForm = () => {
-    
+  const addTodo = (data: string) => {
+    const todoId = nanoid();
+    //const newList = [...list, { id: Math.floor(Math.random()*1000000), title: data, todo: false}];
+    const newList = [...list, { id: todoId, title: data, todo: false}];
+    setList(newList);
+
   }
 
   const [list, setList] = useState([{
-    id: 0,
+    id: '0',
     title: 'Learn JS',
     todo: false
   },
   {
-    id: 1,
+    id: '1',
     title: 'Learn React',
     todo: true
   }])
 
 
   return (
-    <ListContext.Provider value={{todos: list, togleTodo}} >
+    <ListContext.Provider value={{todos: list, togleTodo, addTodo}} >
        <VStack mt={8} spacing='8' >
        <Filter />
        <Slate />
