@@ -29,6 +29,8 @@ function App() {
 
   }
 
+  const useFilter = (value: string) => value;
+
   const [list, setList] = useState([{
     id: '0',
     title: 'Learn JS',
@@ -42,7 +44,7 @@ function App() {
 
 
   return (
-    <ListContext.Provider value={{todos: list, togleTodo, addTodo, currentTodos: currentTodos}} >
+    <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter}} >
        <VStack mt={8} spacing='8' >
        <Filter />
        <Slate />

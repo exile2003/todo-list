@@ -15,11 +15,13 @@ export const Filter = () => {
     }
 
     const getNotCompleted = () => {
-        currentTodos = value.todos.filter(item => item.todo === false)
+        //currentTodos = value.todos.filter(item => item.todo === false);
+        value.useFilter("notcomleted")
     }
 
     const getCompleted = () => {
-        currentTodos = value.todos.filter(item => item.todo === true);
+        //currentTodos = value.todos.filter(item => item.todo === true);
+        value.useFilter("comleted")
     }
 
     return (

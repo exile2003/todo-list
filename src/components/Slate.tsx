@@ -2,12 +2,7 @@ import { Checkbox, HStack, Stack } from '@chakra-ui/react'
 import {useContext} from 'react'
 import ListContext from '../context/ListContext.ts'
 
-
-function Slate() {
-  
-    const value = useContext(ListContext)
-
-    const Todo = ({id, title, todo, togleTodo}: any ) => {
+const Todo = ({id, title, todo, togleTodo}: any ) => {
 
         return (
             <HStack spacing={4} key={id}>
@@ -22,11 +17,27 @@ function Slate() {
             </HStack>
         )     
     }
+
+const Slate = () => {
+  
+    const value = useContext(ListContext)
+
+    const filter = value.useFilter();
+
+    console.log("filter", filter);
+
+    let currentTodos;
+
+    switch(filter) {
+        case "completed": currentTodos = value.todos.filter(item => item.todo === true);
+        case "notcompleted": currentTodos = value.todos.filter(item => item.todo === false);
+        default: currentTodos = value.todos;
+    }
   
     return (
     <Stack minH={'300px'}>
         {/* {console.log(value)} */}
-        {value.currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
+        {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>
     
   )
