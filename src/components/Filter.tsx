@@ -8,20 +8,20 @@ export const Filter = () => {
 
     const value = useContext(ListContext)
 
-    let currentTodos = value.todos;
+    //let currentTodos = value.todos;
 
     const getAll = () => {
-
+        value.useFilter('all')
     }
 
     const getNotCompleted = () => {
         //currentTodos = value.todos.filter(item => item.todo === false);
-        value.useFilter("notcomleted")
+        value.useFilter('notcompleted')
     }
 
     const getCompleted = () => {
         //currentTodos = value.todos.filter(item => item.todo === true);
-        value.useFilter("comleted")
+        value.useFilter('completed')
     }
 
     return (

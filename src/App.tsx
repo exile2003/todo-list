@@ -7,7 +7,6 @@ import Total from './components/Total.tsx'
 import NewTodo from './components/NewTodo.tsx'
 import GetTodos from './components/GetTodos.tsx'
 import ListContext from './context/ListContext.ts'
-import currentTodos from './components/Filter.tsx'
 
 
 function App() {
@@ -29,7 +28,13 @@ function App() {
 
   }
 
-  const useFilter = (value: string) => value;
+  const [filter, setFilter] = useState('all');
+
+  const useFilter = (value: string) => {
+    if (value) setFilter(value);
+    return filter
+  }
+  
 
   const [list, setList] = useState([{
     id: '0',

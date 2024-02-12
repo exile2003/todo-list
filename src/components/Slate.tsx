@@ -5,7 +5,7 @@ import ListContext from '../context/ListContext.ts'
 const Todo = ({id, title, todo, togleTodo}: any ) => {
 
         return (
-            <HStack spacing={4} key={id}>
+            <HStack spacing={4} key={id} w={'200px'} >
                 {
                     //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
@@ -22,20 +22,25 @@ const Slate = () => {
   
     const value = useContext(ListContext)
 
-    const filter = value.useFilter();
+    const completedOrNot = value.useFilter();
 
-    console.log("filter", filter);
+    console.log("filter", completedOrNot);
 
     let currentTodos;
 
-    switch(filter) {
-        case "completed": currentTodos = value.todos.filter(item => item.todo === true);
-        case "notcompleted": currentTodos = value.todos.filter(item => item.todo === false);
-        default: currentTodos = value.todos;
+    switch(completedOrNot) {
+        case ('completed'): currentTodos = value.todos.filter(item => item.todo === true); console.log("switch-completed"); 
+            break;
+        case ('notcompleted'): currentTodos = value.todos.filter(item => item.todo === false); console.log("switch-notcompleted"); 
+            break;
+        default: currentTodos = value.todos; console.log("switch-all");
     }
+
+    console.log("currentTodos", currentTodos)
+    //currentTodos = value.todos;
   
     return (
-    <Stack minH={'300px'}>
+    <Stack minH={'300px'} ml={'200px'} direction="column" marginLeft="0" >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>
