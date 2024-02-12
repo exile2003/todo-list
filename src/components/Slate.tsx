@@ -26,7 +26,7 @@ function Slate() {
     return (
     <Stack minH={'300px'}>
         {/* {console.log(value)} */}
-        {value.todos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
+        {value.currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>
     
   )

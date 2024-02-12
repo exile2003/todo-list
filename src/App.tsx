@@ -7,6 +7,7 @@ import Total from './components/Total.tsx'
 import NewTodo from './components/NewTodo.tsx'
 import GetTodos from './components/GetTodos.tsx'
 import ListContext from './context/ListContext.ts'
+import currentTodos from './components/Filter.tsx'
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
 
 
   return (
-    <ListContext.Provider value={{todos: list, togleTodo, addTodo}} >
+    <ListContext.Provider value={{todos: list, togleTodo, addTodo, currentTodos: currentTodos}} >
        <VStack mt={8} spacing='8' >
        <Filter />
        <Slate />
