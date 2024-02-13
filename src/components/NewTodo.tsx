@@ -13,15 +13,19 @@ function NewTodo() {
   const [isEditing, setIsEditing] = useState(true)
   const [data, setData] = useState("")
 
+
+  const getInput = () => {
+
+  }
+
   const openForm = () => {
     setIsFormVisible(true);
   };
 
   const closeForm = () => {
     setIsFormVisible(false);
-    console.log(data);
-    value.addTodo(data)
-
+    value.addTodo(data);
+    setData("");
   };
 
 
@@ -34,8 +38,8 @@ function NewTodo() {
         <div>
           <Popover 
             isOpen={isEditing}
-            onOpen={setIsEditing.on}
-            onClose={setIsEditing.off}
+            onOpen={() => setIsEditing(true)}
+            onClose={() => setIsEditing(false)}
             closeOnBlur={false}
             isLazy
             lazyBehavior='keepMounted'
@@ -45,7 +49,7 @@ function NewTodo() {
                 <PopoverBody>
                     <h1>Create new todo</h1>
                     <br />
-                    <Input type="text" name="title" placeholder="Type here..." onChange={(e) => setData(e.target.value)}/>
+                    <Input id="inputTitle" type="text" name="title" placeholder="Type here..." onChange={(e) => setData(e.target.value)}/>
                     <br /><br />           
                     <Button bgColor="teal" color="white" onClick={closeForm} >
                         Save
