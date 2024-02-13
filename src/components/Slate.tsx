@@ -9,8 +9,8 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
                 {
                     //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
-                todo ? <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)}  checked />
-                     : <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)}  />
+                todo ? <input type="checkbox" checked={true} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
+                     : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                 
                 }
                 <h3>{title}</h3>
@@ -40,7 +40,7 @@ const Slate = () => {
     //currentTodos = value.todos;
   
     return (
-    <Stack minH={'300px'} ml={'200px'} direction="column" marginLeft="0" >
+    <Stack minH={'300px'} marginLeft="0" >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>

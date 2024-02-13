@@ -14,8 +14,8 @@ function App() {
   const value = useContext(ListContext)
 
   const togleTodo = (itemId: string) => {
-//    const newList = list.map((item) => item.id === itemId ? setList([...list, {...item, todo: !item.todo}])  : setList([...list,{...item}]));
-      const newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
+//  const newList = list.map((item) => item.id === itemId ? setList([...list, {...item, todo: !item.todo}])  : setList([...list,{...item}]));
+    const newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
 
     //console.log(newList)
     setList(newList) 
@@ -36,7 +36,6 @@ function App() {
     return filter
   }
   
-
   const [list, setList] = useState([{
     id: '0',
     title: 'Learn JS',
