@@ -5,7 +5,7 @@ import ListContext from '../context/ListContext.ts'
 const Todo = ({id, title, todo, togleTodo}: any ) => {
 
         return (
-            <HStack spacing={4} key={id} w={'200px'} h={'25px'} >
+            <HStack spacing={4} key={id} w={'600px'} h={'25px'} >
                 {
                     //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
@@ -13,7 +13,7 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
                      : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                 
                 }
-                <Text fontSize='md' pb='2px' >{title}</Text>
+                <Text >{title}</Text>
             </HStack>
         )     
     }
@@ -40,7 +40,7 @@ const Slate = () => {
     //currentTodos = value.todos;
   
     return (
-    <Stack minH={'300px'} marginLeft="0"  >
+    <Stack minH={'300px'} marginLeft="390px"  >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>

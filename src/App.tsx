@@ -13,6 +13,11 @@ function App() {
   
   const value = useContext(ListContext)
 
+  const addData = (data: any) => {
+    const newList = data.map(item => ({ id: nanoid(), title: item.title, todo: item.completed }) );
+    setList(newList)
+  }
+
   const togleTodo = (itemId: string) => {
 //  const newList = list.map((item) => item.id === itemId ? setList([...list, {...item, todo: !item.todo}])  : setList([...list,{...item}]));
     const newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
@@ -49,7 +54,7 @@ function App() {
 
 
   return (
-    <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter}} >
+    <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter, addData}} >
        <VStack mt={8} spacing='8' >
        <Filter />
        <Slate />

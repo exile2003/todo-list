@@ -32,7 +32,7 @@ function NewTodo() {
   return (
     <>
     <Button bgColor="teal" color="white" onClick={openForm} >
-        NewTodo
+        Add new todo
     </Button>
     {isFormVisible && (
         <div>
