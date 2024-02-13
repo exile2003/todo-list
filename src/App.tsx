@@ -15,8 +15,9 @@ function App() {
 
   const togleTodo = (itemId: string) => {
 //    const newList = list.map((item) => item.id === itemId ? setList([...list, {...item, todo: !item.todo}])  : setList([...list,{...item}]));
-    const newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
-    console.log(newList)
+      const newList = list.map(item => item.id === itemId ? {...item, todo: !item.todo}  : item);
+
+    //console.log(newList)
     setList(newList) 
   }
 
@@ -30,7 +31,7 @@ function App() {
 
   const [filter, setFilter] = useState('all');
 
-  const useFilter = (value: string) => {
+  const useFilter = (value: string|null) => {
     if (value) setFilter(value);
     return filter
   }

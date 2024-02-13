@@ -2,7 +2,7 @@
 import {useContext, useState} from 'react'
 import ListContext from '../context/ListContext.ts'
 import {Button, FormControl, Input, Popover, PopoverContent, PopoverBody} from '@chakra-ui/react'
-import { color } from 'framer-motion';
+//import { color } from 'framer-motion';
 
     
 function NewTodo() {

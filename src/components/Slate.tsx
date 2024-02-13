@@ -9,8 +9,8 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
                 {
                     //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
-                todo ? <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => {togleTodo(id); console.log(id, todo)}}  checked />
-                     : <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => {togleTodo(id); console.log(id, todo)}}  />
+                todo ? <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)}  checked />
+                     : <input type="checkbox" style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)}  />
                 
                 }
                 <h3>{title}</h3>
@@ -22,21 +22,21 @@ const Slate = () => {
   
     const value = useContext(ListContext)
 
-    const completedOrNot = value.useFilter();
+    const completedOrNot = value.useFilter(null);
 
-    console.log("filter", completedOrNot);
+    //console.log("filter", completedOrNot);
 
     let currentTodos;
 
     switch(completedOrNot) {
-        case ('completed'): currentTodos = value.todos.filter(item => item.todo === true); console.log("switch-completed"); 
+        case ('completed'): currentTodos = value.todos.filter(item => item.todo === true); //console.log("switch-completed"); 
             break;
-        case ('notcompleted'): currentTodos = value.todos.filter(item => item.todo === false); console.log("switch-notcompleted"); 
+        case ('notcompleted'): currentTodos = value.todos.filter(item => item.todo === false); //console.log("switch-notcompleted"); 
             break;
-        default: currentTodos = value.todos; console.log("switch-all");
+        default: currentTodos = value.todos; //console.log("switch-all");
     }
 
-    console.log("currentTodos", currentTodos)
+    //console.log("currentTodos", currentTodos)
     //currentTodos = value.todos;
   
     return (

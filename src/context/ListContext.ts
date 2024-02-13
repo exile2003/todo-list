@@ -9,7 +9,7 @@ interface TodoContextType {
     }[];
     togleTodo: (arg: string) => void;
     addTodo: (arg: string) => void;
-    useFilter: (arg: string) => string;
+    useFilter: (arg: string|null) => string|null;
 }
 
 //const nope = (arg: number) => {};
