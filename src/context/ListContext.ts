@@ -10,7 +10,7 @@ interface TodoContextType {
     togleTodo: (arg: string) => void;
     addTodo: (arg: string) => void;
     useFilter: (arg: string|null) => string|null;
-    addData: () => {}
+    addData: (arg: Response) => void
 }
 
 //const nope = (arg: number) => {};
@@ -25,7 +25,7 @@ const ListContext = createContext<TodoContextType>({
    togleTodo: () => {},
    addTodo: () => {},
    useFilter: (value) => value,
-   addData: () => {}
+   addData: (value) => {}
 })
 
 export default ListContext

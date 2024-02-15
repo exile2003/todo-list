@@ -2,15 +2,24 @@ import {Button, } from '@chakra-ui/react'
 import {useContext, useState} from 'react'
 import ListContext from '../context/ListContext.ts'
 
+type todoItem = {
+    id: string;
+    title: string;
+    todo: boolean
+}
+
+type responseTodo = todoItem & { [key: string]: any }
+
+
 function GetTodos() {
 
     const value = useContext(ListContext)
 
-    const getData = async (URL) => {
-        let res = await fetch(URL);
-        res = await res.json();
-        console.log(res)
-        value.addData(res);
+    const getData = async (URL: string) => {
+        let res: responseTodo = await fetch(URL);
+        let res2: todoItem = await res.json();
+        //console.log(res)
+        value.addData(res2);
     }
 
   return (
