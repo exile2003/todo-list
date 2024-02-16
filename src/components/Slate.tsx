@@ -19,8 +19,14 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
     }
 
 const Slate = () => {
-  
+      
     const value = useContext(ListContext)
+
+    const {loading, error} = value.useLoading();
+
+    console.log("loading = ", loading);
+    console.log("error = ", error);
+
 
     const completedOrNot = value.useFilter(null);
 
@@ -38,12 +44,31 @@ const Slate = () => {
 
     //console.log("currentTodos", currentTodos)
     //currentTodos = value.todos;
-  
+
+    if(loading) return(<h1>Loading...</h1>);
+    if(error) return(
+        <pre>{JSON.stringify(error.message, null, 2)}</pre>
+    )
+    
+
     return (
+    <>
+     {/* {
+        (loading)&&(<h1>Loading...</h1>)
+    }{   
+    
+        (error)&& (
+            //console.log("error = ", error.message);
+            <pre>{JSON.stringify(error.message, null, 2)}</pre>
+        )
+    }  */}
+    
     <Stack minH={'300px'} marginLeft="390px"  >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>
+    </>
+   
     
   )
 }

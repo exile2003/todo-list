@@ -15,16 +15,9 @@ function GetTodos() {
 
     const value = useContext(ListContext)
 
-    const getData = async (URL: string) => {
-        let res: responseTodo = await fetch(URL);
-        let res2: todoItem = await res.json();
-        //console.log(res)
-        value.addData(res2);
-    }
-
   return (
     <>
-        <Button bgColor="blue" color="white" onClick={() => getData('https://jsonplaceholder.typicode.com/todos?_limit=10')} >
+        <Button bgColor="blue" color="white" onClick={() => value.useFetch('https://jsonplaceholder.typicode.com/todos?_limit=10')} >
             Get todos
         </Button>
     </>

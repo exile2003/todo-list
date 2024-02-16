@@ -10,10 +10,11 @@ interface TodoContextType {
     togleTodo: (arg: string) => void;
     addTodo: (arg: string) => void;
     useFilter: (arg: string|null) => string|null;
-    addData: (arg: Response) => void
+    useFetch: (arg: string) => void;
+    useLoading: () => {loading: boolean, error: {}};
 }
 
-//const nope = (arg: number) => {};
+const nope = () => {};
 
 const ListContext = createContext<TodoContextType>({ 
     todos:[{
@@ -25,7 +26,8 @@ const ListContext = createContext<TodoContextType>({
    togleTodo: () => {},
    addTodo: () => {},
    useFilter: (value) => value,
-   addData: (value) => {}
+   useFetch: (value) => {},
+   useLoading: () => {loading: true; error: {}}
 })
 
 export default ListContext

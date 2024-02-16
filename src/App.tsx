@@ -1,4 +1,4 @@
-import { useState, useContext, useId } from 'react'
+import { useState, useContext, useId, useEffect } from 'react'
 import { Filter } from './components/Filter.tsx'
 import { Box, Text, VStack, Divider, } from "@chakra-ui/react"
 import { nanoid } from 'nanoid';
@@ -11,7 +11,68 @@ import ListContext from './context/ListContext.ts'
 
 function App() {
   
-  const value = useContext(ListContext)
+  //const value = useContext(ListContext)
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [list, setList] = useState([{
+    id: '0',
+    title: 'Learn JS',
+    todo: false
+  },
+  {
+    id: '1',
+    title: 'Learn React',
+    todo: true
+  }])
+/*
+  const useFetch = () => {
+    
+   // const [data, setData] = useState(list);
+   useEffect(() => {
+    (async() => {
+        try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
+        if(!res.ok) throw new Error('Faild to fetch! Try again.');
+        addData(await res.json());
+        
+      } catch(error) {
+        console.log("error = ", error.message);
+        setError({message: error.message})
+      } finally {
+        setLoading(false)
+      }
+    })
+     
+   }, [error, list])
+   
+  return { loading, error }
+   
+  }
+*/
+
+const useFetch = async (URL:string) => {
+    
+      setLoading(true)
+      setError(null)
+
+       try {
+       const res = await fetch(URL);
+       if(!res.ok) throw new Error('Faild to fetch! Try again.');
+       addData(await res.json());
+       
+     } catch(error) {
+       console.log("error = ", error.message);
+       setError({message: error.message})
+     } finally {
+       setLoading(false)
+     }
+    
+ }
+
+ const useLoading = () => {
+  return {loading, error}
+ }
 
   const addData = (data: any) => {
     const newList = data.map(item => ({ id: nanoid(), title: item.title, todo: item.completed }) );
@@ -41,20 +102,11 @@ function App() {
     return filter
   }
   
-  const [list, setList] = useState([{
-    id: '0',
-    title: 'Learn JS',
-    todo: false
-  },
-  {
-    id: '1',
-    title: 'Learn React',
-    todo: true
-  }])
+  
 
 
   return (
-    <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter, addData}} >
+    <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter, useFetch, useLoading}} >
        <VStack mt={8} spacing='8' >
        <Filter />
        <Slate />
