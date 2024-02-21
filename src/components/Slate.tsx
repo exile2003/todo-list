@@ -45,9 +45,9 @@ const Slate = () => {
     //console.log("currentTodos", currentTodos)
     //currentTodos = value.todos;
 
-    if(loading) return(<h1>Loading...</h1>);
+    if(loading) return(<h5>Loading...</h5>);
     if(error) return(
-        <pre>{JSON.stringify(error.message, null, 2)}</pre>
+        <pre>{JSON.stringify(error, null, 2)}</pre>
     )
     
 

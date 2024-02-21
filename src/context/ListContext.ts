@@ -11,7 +11,7 @@ interface TodoContextType {
     addTodo: (arg: string) => void;
     useFilter: (arg: string|null) => string|null;
     useFetch: (arg: string) => void;
-    useLoading: () => {loading: boolean, error: {}};
+    useLoading: () => {loading: boolean, error: string};
 }
 
 const nope = () => {};
@@ -27,7 +27,7 @@ const ListContext = createContext<TodoContextType>({
    addTodo: () => {},
    useFilter: (value) => value,
    useFetch: (value) => {},
-   useLoading: () => {loading: true; error: {}}
+   useLoading: () => ({ loading: true, error: '' })
 })
 
 export default ListContext

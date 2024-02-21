@@ -8,13 +8,18 @@ import NewTodo from './components/NewTodo.tsx'
 import GetTodos from './components/GetTodos.tsx'
 import ListContext from './context/ListContext.ts'
 
+type todoItem = {
+ // id: string;
+  title: string;
+  completed: boolean
+}
 
 function App() {
   
   //const value = useContext(ListContext)
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [list, setList] = useState([{
     id: '0',
     title: 'Learn JS',
@@ -54,28 +59,27 @@ function App() {
 const useFetch = async (URL:string) => {
     
       setLoading(true)
-      setError(null)
+      setError('')
 
        try {
        const res = await fetch(URL);
        if(!res.ok) throw new Error('Faild to fetch! Try again.');
        addData(await res.json());
        
-     } catch(error) {
+     } catch(error: any) {
        console.log("error = ", error.message);
-       setError({message: error.message})
+       setError(error.message)
      } finally {
        setLoading(false)
-     }
-    
+     }  
  }
 
  const useLoading = () => {
   return {loading, error}
  }
 
-  const addData = (data: any) => {
-    const newList = data.map(item => ({ id: nanoid(), title: item.title, todo: item.completed }) );
+  const addData = (data: {title: string, completed: boolean}[]) => {
+    const newList = data.map((item: {title: string, completed: boolean}) => ({ id: nanoid(), title: item.title, todo: item.completed }) );
     setList(newList)
   }
 
