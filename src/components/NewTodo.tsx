@@ -1,8 +1,9 @@
 
 import {useContext, useState} from 'react'
 import ListContext from '../context/ListContext.ts'
-import {Button, FormControl, Input, Popover, PopoverContent, PopoverBody} from '@chakra-ui/react'
+import {FormControl, Input, Popover, PopoverContent, PopoverBody} from '@chakra-ui/react'
 //import { color } from 'framer-motion';
+import { Offcanvas, Button, Form, InputGroup} from 'react-bootstrap';
 
     
 function NewTodo() {
@@ -14,27 +15,29 @@ function NewTodo() {
   const [data, setData] = useState("")
 
 
-  const getInput = () => {
-
-  }
-
   const openForm = () => {
     setIsFormVisible(true);
   };
 
-  const closeForm = () => {
+  const saveData = () => {
     setIsFormVisible(false);
     value.addTodo(data);
     setData("");
   };
 
 
+  const closeForm = () => {
+    setIsFormVisible(false);
+    setData("");
+  };
+
+
   return (
     <>
-    <Button bgColor="teal" color="white" onClick={openForm} >
+    <Button style={{ backgroundColor: "teal" }} color="white" onClick={openForm} >
         Add new todo
     </Button>
-    {isFormVisible && (
+    {/* {isFormVisible && (
         <div>
           <Popover 
             isOpen={isEditing}
@@ -59,7 +62,22 @@ function NewTodo() {
             
           </Popover>
         </div>
-      )}
+      )} */}
+
+    <Offcanvas show={isFormVisible} onHide={closeForm} placement="end" >
+      <Offcanvas.Header closeButton >
+           <Offcanvas.Title></Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+            <h3>Create new todo</h3>
+            <br />
+            <Form.Control id="inputTitle" type="text" name="title" placeholder="Type here..." onChange={(e) => setData(e.target.value)}/>
+            <br /><br />
+            <Button color="white" onClick={saveData} >
+              Save
+            </Button>
+      </Offcanvas.Body>
+    </Offcanvas>
     </>
   )
 }
