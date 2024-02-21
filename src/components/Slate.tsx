@@ -7,15 +7,13 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
         return (
             <HStack spacing={4} key={id} w={'600px'} h={'25px'} >
                 {
-                    //<Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
+                   // <Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
                 todo ? <input type="checkbox" checked={true} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                      : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                 
                 }
-                <Box display="flex" alignItems="center">
-                    <Text textAlign="center" >{title}</Text>
-                </Box>
+                    <Text pt="3" >{title}</Text>
             </HStack>
         )     
     }
