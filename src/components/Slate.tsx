@@ -1,4 +1,4 @@
-import { Checkbox, HStack, Stack, Text } from '@chakra-ui/react'
+import { Checkbox, HStack, Stack, Text, Box } from '@chakra-ui/react'
 import {useContext} from 'react'
 import ListContext from '../context/ListContext.ts'
 
@@ -13,7 +13,9 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
                      : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                 
                 }
-                <Text >{title}</Text>
+                <Box display="flex" alignItems="center">
+                    <Text textAlign="center" >{title}</Text>
+                </Box>
             </HStack>
         )     
     }
