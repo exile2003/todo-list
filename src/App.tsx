@@ -74,13 +74,13 @@ const useFetch = async (URL:string) => {
 
   return (
     <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter, useFetch, useLoading}} >
-       <VStack mt={8} spacing='8' >
-       <Filter />
-       <Slate />
-       <Total />
-       <NewTodo />
-       <GetTodos />
-    </VStack>
+      <VStack mt={8} spacing='8' >
+      <Filter />
+      <Slate />
+      <Total />
+      <NewTodo />
+      <GetTodos />
+      </VStack>
     </ListContext.Provider>
    
   )
