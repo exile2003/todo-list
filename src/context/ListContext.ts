@@ -1,4 +1,4 @@
-import {createContext} from 'react'
+import { createContext } from 'react'
 
 
 interface TodoContextType {
@@ -21,10 +21,9 @@ const ListContext = createContext<TodoContextType>({
         id: null,
         title: null,
         todo: null,
-     //   togleTodo: nope
     }], 
-   togleTodo: () => {},
-   addTodo: () => {},
+   togleTodo: nope,
+   addTodo: nope,
    useFilter: (value) => value,
    useFetch: (value) => {},
    useLoading: () => ({ loading: true, error: '' })

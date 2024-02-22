@@ -1,4 +1,4 @@
-import { Checkbox, HStack, Stack, Text, Box } from '@chakra-ui/react'
+import { Checkbox, HStack, Stack, Text } from '@chakra-ui/react'
 import {useContext} from 'react'
 import ListContext from '../context/ListContext.ts'
 
@@ -7,10 +7,10 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
         return (
             <HStack spacing={4} key={id} w={'600px'} h={'25px'} >
                 {
-                   // <Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
+                   <Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
                 
-                todo ? <input type="checkbox" checked={true} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
-                     : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
+                // todo ? <input type="checkbox" checked={true} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
+                //      : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                 
                 }
                     <Text pt="3" >{title}</Text>
@@ -24,13 +24,7 @@ const Slate = () => {
 
     const {loading, error} = value.useLoading();
 
-    console.log("loading = ", loading);
-    console.log("error = ", error);
-
-
     const completedOrNot = value.useFilter(null);
-
-    //console.log("filter", completedOrNot);
 
     let currentTodos;
 
@@ -42,34 +36,15 @@ const Slate = () => {
         default: currentTodos = value.todos; //console.log("switch-all");
     }
 
-    //console.log("currentTodos", currentTodos)
-    //currentTodos = value.todos;
-
     if(loading) return(<h5>Loading...</h5>);
-    if(error) return(
-        <pre>{JSON.stringify(error, null, 2)}</pre>
-    )
-    
-
+    if(error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+ 
     return (
     <>
-     {/* {
-        (loading)&&(<h1>Loading...</h1>)
-    }{   
-    
-        (error)&& (
-            //console.log("error = ", error.message);
-            <pre>{JSON.stringify(error.message, null, 2)}</pre>
-        )
-    }  */}
-    
-    <Stack minH={'300px'} marginLeft="390px"  >
-        {/* {console.log(value)} */}
+    <Stack minH={'300px'} marginLeft="390px">
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>
     </>
-   
-    
   )
 }
 

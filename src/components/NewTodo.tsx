@@ -1,9 +1,18 @@
 
 import {useContext, useState} from 'react'
 import ListContext from '../context/ListContext.ts'
-import {FormControl, Input, Popover, PopoverContent, PopoverBody} from '@chakra-ui/react'
-//import { color } from 'framer-motion';
-import { Offcanvas, Button, Form} from 'react-bootstrap';
+import {
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Input
+} from '@chakra-ui/react'
 
     
 function NewTodo() {
@@ -11,7 +20,6 @@ function NewTodo() {
   const value = useContext(ListContext)
 
   const [isFormVisible, setIsFormVisible] = useState(false);
-  //const [isEditing, setIsEditing] = useState(true)
   const [data, setData] = useState("")
 
 
@@ -25,7 +33,6 @@ function NewTodo() {
     setData("");
   };
 
-
   const closeForm = () => {
     setIsFormVisible(false);
     setData("");
@@ -34,52 +41,36 @@ function NewTodo() {
 
   return (
     <>
-    <Button style={{ backgroundColor: "teal" }} color="white" onClick={openForm} >
+    <Button colorScheme="teal" onClick={openForm} >
         Add new todo
     </Button>
-    {/* {isFormVisible && (
-        <div>
-          <Popover 
-            isOpen={isEditing}
-            onOpen={() => setIsEditing(true)}
-            onClose={() => setIsEditing(false)}
-            closeOnBlur={false}
-            isLazy
-            lazyBehavior='keepMounted'
-          
-          >
-            <PopoverContent>
-                <PopoverBody>
-                    <h1>Create new todo</h1>
-                    <br />
-                    <Input id="inputTitle" type="text" name="title" placeholder="Type here..." onChange={(e) => setData(e.target.value)}/>
-                    <br /><br />           
-                    <Button bgColor="teal" color="white" onClick={closeForm} >
-                        Save
-                    </Button>
-                </PopoverBody>
-            </PopoverContent>
-            
-          </Popover>
-        </div>
-      )} */}
+           
+    <Drawer isOpen={isFormVisible} placement="right" onClose={closeForm}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Create new todo</DrawerHeader>
 
-    <Offcanvas show={isFormVisible} onHide={closeForm} placement="end" >
-      <Offcanvas.Header closeButton >
-           <Offcanvas.Title></Offcanvas.Title>
-      </Offcanvas.Header>
-      <Offcanvas.Body>
-            <h3>Create new todo</h3>
-            <br />
-            <Form.Control id="inputTitle" type="text" name="title" placeholder="Type here..." onChange={(e) => setData(e.target.value)}/>
-            <br /><br />
-            <Button style={{ backgroundColor: "teal" }} color="white" onClick={saveData} >
+          <DrawerBody>
+            <Input
+              placeholder="Type here..."
+              onChange={(e) => setData(e.target.value)}
+              autoFocus
+            />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant="outline" mr={3} onClick={closeForm}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue" onClick={saveData}>
               Save
             </Button>
-      </Offcanvas.Body>
-    </Offcanvas>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </>
-  )
-}
+)}
+
 
 export default NewTodo
