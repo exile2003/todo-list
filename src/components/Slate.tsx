@@ -45,9 +45,9 @@ const Slate = () => {
     //console.log("currentTodos", currentTodos)
     //currentTodos = value.todos;
 
-    if(loading) return(<h5>Loading...</h5>);
+    if(loading) return(<div className="d-flex justify-content-center" >Loading...</div>);
     if(error) return(
-        <pre>{JSON.stringify(error, null, 2)}</pre>
+        <div className="d-flex justify-content-center" >{JSON.stringify(error, null, 2)}</div>
     )
     
 
@@ -63,7 +63,7 @@ const Slate = () => {
         )
     }  */}
     
-    <Stack style={{ minHeight: '300px', marginLeft: "390px" }} >
+    <Stack gap={3} style={{ minHeight: '300px', marginLeft: '510px' }} >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>

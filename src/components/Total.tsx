@@ -7,7 +7,7 @@ function Total() {
     const count = value.todos.reduce(sum => sum += 1, 0)
 
   return (
-    <div>Total = {count}</div>
+    <div className="d-flex justify-content-center" >Total = {count}</div>
   )
 }
 

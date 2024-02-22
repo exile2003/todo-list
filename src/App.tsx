@@ -1,7 +1,7 @@
 import { useState, useContext, useId, useEffect } from 'react'
 import { Filter } from './components/Filter.tsx'
 // import { Box, Text, VStack, Divider, } from "@chakra-ui/react"
-import { Stack } from "react-bootstrap"
+import { Stack, Button } from "react-bootstrap"
 // import Stack from 'react-bootstrap/Stack';
 import { nanoid } from 'nanoid';
 import Slate from './components/Slate.tsx'
@@ -9,7 +9,7 @@ import Total from './components/Total.tsx'
 import NewTodo from './components/NewTodo.tsx'
 import GetTodos from './components/GetTodos.tsx'
 import ListContext from './context/ListContext.ts'
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 function App() {
@@ -83,7 +83,7 @@ const useFetch = async (URL:string) => {
 
   return (
     <ListContext.Provider value={{todos: list, togleTodo, addTodo, useFilter, useFetch, useLoading}} >
-    <Stack class="d-flex justify-content-center" gap={3} >
+    <Stack gap={3} >
        <Filter /> 
        <Slate />
        <Total />

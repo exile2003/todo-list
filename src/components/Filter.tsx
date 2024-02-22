@@ -23,14 +23,12 @@ export const Filter = () => {
     }
 
     return (
-        <div >
-            <Stack gap={2} direction='horizontal' >
+            <Stack gap={2} direction='horizontal' className="d-flex justify-content-center" >
             <Button style={{ backgroundColor:'teal' }} onClick = {getAll} >All</Button>
             <Button onClick = {getNotCompleted} >Not completed</Button>
             <Button onClick = {getCompleted} >Completed</Button>
             </Stack>
-        </div>
-       
+              
     )
 
     

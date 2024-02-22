@@ -29,11 +29,12 @@ function NewTodo() {
 
 
   return (
-    <>
-      <Button style={{ backgroundColor: "teal" }} color="white" onClick={openForm} >
-          Add new todo
-      </Button>
-      
+    <div>
+      <div className="d-flex justify-content-center " >
+        <Button style={{ backgroundColor: "teal" }} color="white" onClick={openForm} >
+            Add new todo
+        </Button>
+      </div>  
       <Offcanvas show={isFormVisible} onHide={closeForm} placement="end" >
         <Offcanvas.Header closeButton >
             <Offcanvas.Title></Offcanvas.Title>
@@ -48,7 +49,7 @@ function NewTodo() {
               </Button>
         </Offcanvas.Body>
       </Offcanvas>
-    </>
+    </div>
   )
 }
 
