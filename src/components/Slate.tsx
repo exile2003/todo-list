@@ -1,20 +1,20 @@
-import { Checkbox, HStack, Stack, Text, Box } from '@chakra-ui/react'
+// import { Checkbox, HStack, Stack, Text, Box } from '@chakra-ui/react'
+import { Stack, Form } from 'react-bootstrap'
 import {useContext} from 'react'
 import ListContext from '../context/ListContext.ts'
 
 const Todo = ({id, title, todo, togleTodo}: any ) => {
 
         return (
-            <HStack spacing={4} key={id} w={'600px'} h={'25px'} >
-                {
-                   // <Checkbox isChecked={todo} onChange={() => togleTodo(id)} size="lg" />
+            <Stack direction="horizontal" gap={3} key={id} >
                 
-                todo ? <input type="checkbox" checked={true} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
-                     : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
-                
-                }
-                    <Text pt="3" >{title}</Text>
-            </HStack>
+                    <Form.Check size={'sm'} checked={todo} onChange={() => togleTodo(id)} />
+                    <div>{title}</div>
+                    {
+                        // todo ? <input type="checkbox" checked={true} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
+                        //      : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
+                    }              
+            </Stack>
         )     
     }
 
@@ -63,7 +63,7 @@ const Slate = () => {
         )
     }  */}
     
-    <Stack minH={'300px'} marginLeft="390px"  >
+    <Stack style={{ minHeight: '300px', marginLeft: "390px" }} >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>

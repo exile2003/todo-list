@@ -1,4 +1,4 @@
-import {Button, } from '@chakra-ui/react'
+import { Button } from 'react-bootstrap'
 import {useContext, useState} from 'react'
 import ListContext from '../context/ListContext.ts'
 
@@ -17,7 +17,7 @@ function GetTodos() {
 
   return (
     <>
-        <Button bgColor="blue" color="white" onClick={() => value.useFetch('https://jsonplaceholder.typicode.com/todos?_limit=10')} >
+        <Button style={{ backgroundColor: "blue" }} onClick={() => value.useFetch('https://jsonplaceholder.typicode.com/todos?_limit=10')} >
             Get todos
         </Button>
     </>
