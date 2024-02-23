@@ -15,7 +15,7 @@ const Todo = ({id, title, todo, togleTodo}: any ) => {
                 //      : <input type="checkbox" checked={false} style={{transform: 'scale(1.5)'}} onChange={() => togleTodo(id)} />
                 
                 }
-                    <Text pt="3" >{title}</Text>
+                    <Text >{title}</Text>
             </HStack>
 
         )     
