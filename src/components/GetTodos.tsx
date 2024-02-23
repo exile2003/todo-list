@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import ListContext from '../context/ListContext.ts'
 
 function GetTodos() {

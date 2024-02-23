@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { Filter } from './components/Filter.tsx'
-import { VStack, Divider, } from "@chakra-ui/react"
+import { VStack } from "@chakra-ui/react"
 import { nanoid } from 'nanoid';
 import Slate from './components/Slate.tsx'
 import Total from './components/Total.tsx'

@@ -25,7 +25,7 @@ const ListContext = createContext<TodoContextType>({
    togleTodo: nope,
    addTodo: nope,
    useFilter: (value) => value,
-   useFetch: (value) => {},
+   useFetch: () => {},
    useLoading: () => ({ loading: true, error: '' })
 })
 
