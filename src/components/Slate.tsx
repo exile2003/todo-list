@@ -63,7 +63,7 @@ const Slate = () => {
         )
     }  */}
     
-    <Stack gap={3} style={{ minHeight: '300px', marginLeft: '510px' }} >
+    <Stack gap={3} style={{ minHeight: '300px', marginLeft: '30%' }} >
         {/* {console.log(value)} */}
         {currentTodos.map(item => <Todo key = {item.id} {...item} togleTodo = {value.togleTodo} />)}
     </Stack>
