@@ -1,4 +1,3 @@
-
 import {useContext, useState} from 'react'
 import ListContext from '../context/ListContext.ts'
 import {
@@ -13,6 +12,7 @@ import {
   useDisclosure,
   Input
 } from '@chakra-ui/react'
+
 
     
 function NewTodo() {

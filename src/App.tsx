@@ -7,6 +7,7 @@ import Total from './components/Total.tsx'
 import NewTodo from './components/NewTodo.tsx'
 import GetTodos from './components/GetTodos.tsx'
 import ListContext from './context/ListContext.ts'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   
@@ -82,7 +83,6 @@ const useFetch = async (URL:string) => {
       <GetTodos />
       </VStack>
     </ListContext.Provider>
-   
   )
 }
 

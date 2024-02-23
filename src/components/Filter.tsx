@@ -19,6 +19,7 @@ export const Filter = () => {
     }
 
     return (
+
         <Stack spacing='10px' direction='row' >
          
             <Button bg='teal.400' onClick = {getAll} >All</Button>
@@ -26,6 +27,7 @@ export const Filter = () => {
             <Button onClick = {getCompleted} >Completed</Button>
                         
         </Stack>
+
     )
 }
 
