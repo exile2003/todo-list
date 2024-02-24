@@ -57,10 +57,10 @@ function NewTodo() {
               autoFocus
             />
             <br /><br />
-             <Button variant="outline" ml={'45%'} onClick={closeForm}>
+             <Button variant="outline" ml={'36%'} onClick={closeForm}>
               Cancel
             </Button>
-            <Button colorScheme="blue" onClick={saveData}>
+            <Button colorScheme="blue" ml= {5} onClick={saveData}>
               Save
             </Button>
           </DrawerBody>
