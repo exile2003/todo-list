@@ -56,10 +56,17 @@ function NewTodo() {
               onChange={(e) => setData(e.target.value)}
               autoFocus
             />
+            <br /><br />
+             <Button variant="outline" mr={3} onClick={closeForm}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue" onClick={saveData}>
+              Save
+            </Button>
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={closeForm}>
+            <Button variant="outline" mr={5} onClick={closeForm}>
               Cancel
             </Button>
             <Button colorScheme="blue" onClick={saveData}>
