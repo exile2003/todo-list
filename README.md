@@ -10,7 +10,7 @@ Technical stack:
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
 <a href="https://chakra-ui.com/" target="_blank" rel="noreferrer"> <img width="40" height="40" src="https://img.icons8.com/color/48/chakra-ui.png" alt="chakra-ui"/> </a> 
 
-[Deploying aplication here](https://exile2003.github.com.io/todo-list/)
+[Deploying aplication here](https://exile2003.github.io/todo-list/)
 
 
 
