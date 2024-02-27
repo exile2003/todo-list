@@ -64,11 +64,9 @@ function NewTodo() {
               Save
             </Button>
           </DrawerBody>
-
         </DrawerContent>
       </Drawer>
     </>
 )}
-
 
 export default NewTodo
