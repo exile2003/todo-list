@@ -11,7 +11,3 @@ Technical stack:
 <a href="https://chakra-ui.com/" target="_blank" rel="noreferrer"> <img width="40" height="40" src="https://img.icons8.com/color/48/chakra-ui.png" alt="chakra-ui"/> </a> 
 
 [Deploying aplication here](https://exile2003.github.io/todo-list/)
-
-
-
-
