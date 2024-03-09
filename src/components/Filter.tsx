@@ -19,15 +19,11 @@ export const Filter = () => {
     }
 
     return (
-
         <Stack spacing='10px' direction='row' >
-         
             <Button bg='teal.400' onClick = {getAll} >All</Button>
             <Button onClick = {getNotCompleted} >Not completed</Button>
             <Button onClick = {getCompleted} >Completed</Button>
-                        
         </Stack>
-
     )
 }
 
